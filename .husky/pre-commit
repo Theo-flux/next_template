@@ -1,0 +1,80 @@
+#!/usr/bin/env sh
+
+if [ -z "$husky_skip_init" ]; then
+  git_user_name=$(git config --get user.name)
+
+  echo "husky - $hook_name hook started by $git_user_name"
+  echo "Hi $git_user_name, while we run some checks, you can grab a coffee ☕️ or tea 🍵, or even better, a beer 🍺."
+
+  debug () {
+    if [ "$HUSKY_DEBUG" = "1" ]; then
+      echo "husky (debug) - $1"
+    fi
+  }
+
+  readonly hook_name="$(basename -- "$0")"
+  debug "starting $hook_name..."
+
+  if [ "$HUSKY" = "0" ]; then
+    debug "HUSKY env variable is set to 0, skipping hook"
+    exit 0
+  fi
+
+  if [ -f ~/.huskyrc ]; then
+    debug "sourcing ~/.huskyrc"
+    . ~/.huskyrc
+  fi
+
+  readonly husky_skip_init=1
+  export husky_skip_init
+
+  # Run lint-staged
+  debug "Running lint-staged"
+  npx lint-staged
+  
+  # Check the exit status of the previous command
+  if [ $? -ne 0 ]; then
+    echo "husky - $hook_name hook Linting staged files failed. Please fix the issues before committing."
+    exit 1
+  fi
+
+  # Run yarn check:types
+  debug "Running yarn check:types"
+  yarn check:types
+
+  # Check the exit status of the previous command
+  if [ $? -ne 0 ]; then
+    echo "husky - $hook_name hook Type checking failed. Please fix type errors."
+    exit 1
+  fi
+
+  # Run yarn lint
+  debug "Running yarn lint"
+  yarn lint
+
+  # Check the exit status of the previous command
+  if [ $? -ne 0 ]; then
+    echo "husky - $hook_name hook Linting failed. Please fix linting errors."
+    exit 1
+  fi
+
+  # Run yarn check:format
+  debug "Running yarn check:format"
+  yarn check:format
+
+  # Check the exit status of the previous command
+  if [ $? -ne 0 ]; then
+    echo "husky - $hook_name hook Code formatting check failed. Please format your code with \`yarn format\`." >&2
+    exit 1
+  fi
+
+  # Run yarn test:ci
+  # debug "Running yarn test:ci"
+  # yarn test:ci
+
+  # Check the exit status of the previous command
+  if [ $? -ne 0 ]; then
+    echo "husky - $hook_name hook Tests failed. Please fix failing tests."
+    exit 1
+  fi
+fi

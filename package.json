@@ -1,0 +1,41 @@
+{
+  "name": "embermail_assessment",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "check:types": "tsc --pretty --noEmit",
+    "check:format": "prettier --check \"src/**/*.+(ts|tsx|json)\"",
+    "check": "yarn lint && yarn check:format && yarn check:types",
+    "start": "next start",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "lint:strict": "next lint '*/**/*.{js,jsx,ts,tsx}'",
+    "prettier": "prettier --write */**/*.{js,jsx,json,ts,tsx,scss,css,md}",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "next": "15.0.3",
+    "react": "19.0.0-rc-66855b96-20241106",
+    "react-dom": "19.0.0-rc-66855b96-20241106"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@typescript-eslint/eslint-plugin": "^8.14.0",
+    "@typescript-eslint/parser": "^8.14.0",
+    "eslint": "^8",
+    "eslint-config-next": "14.0.3",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.10",
+    "postcss": "^8",
+    "prettier": "^3.3.3",
+    "prettier-plugin-tailwindcss": "^0.6.8",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
+  }
+}
