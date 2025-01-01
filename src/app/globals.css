@@ -8,28 +8,28 @@
     @apply whitespace-nowrap transition-all duration-150 ease-in-out disabled:cursor-not-allowed disabled:opacity-50 hover:disabled:opacity-50;
   }
   .button-filled {
-    @apply bg-astronautBlue border-none text-white hover:opacity-80;
+    @apply border-none bg-astronautBlue text-white hover:opacity-80;
     @apply h-[45px] w-full rounded-lg border font-medium;
   }
   .button-transparent {
-    @apply bg-bgGray hover:bg-bgGray/50 border-none text-black;
+    @apply border-none bg-bgGray text-black hover:bg-bgGray/50;
     @apply h-[45px] w-full rounded-lg border font-medium;
   }
   .button-outlined {
-    @apply border-borderLine hover:border-astronautBlue border bg-white text-black hover:shadow;
+    @apply border border-borderLine bg-white text-black hover:border-astronautBlue hover:shadow;
     @apply h-[45px] w-full rounded-lg border font-medium;
   }
   .button-light {
-    @apply bg-astronautBlue/10 text-astronautBlue hover:bg-astronautBlue/50 border-none hover:text-white;
+    @apply border-none bg-astronautBlue/10 text-astronautBlue hover:bg-astronautBlue/50 hover:text-white;
     @apply h-[45px] w-full rounded-lg border font-medium;
   }
   .button-underlined {
-    @apply border-astronautBlue flex w-fit items-center justify-start space-x-1 border-b px-2 py-1 ease-in-out;
-    @apply text-astronautBlue hover:bg-astronautBlue text-sm transition-all duration-300 hover:text-white;
+    @apply flex w-fit items-center justify-start space-x-1 border-b border-astronautBlue px-2 py-1 ease-in-out;
+    @apply text-sm text-astronautBlue transition-all duration-300 hover:bg-astronautBlue hover:text-white;
   }
 
   .button-danger {
-    @apply bg-error border-none text-white hover:opacity-80;
+    @apply border-none bg-error text-white hover:opacity-80;
     @apply h-[45px] w-full rounded-lg border font-medium;
   }
 }

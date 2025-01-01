@@ -8,6 +8,7 @@
     "check:types": "tsc --pretty --noEmit",
     "check:format": "prettier --check \"src/**/*.+(ts|tsx|json)\"",
     "check": "yarn lint && yarn check:format && yarn check:types",
+    "format": "prettier --write .",
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",

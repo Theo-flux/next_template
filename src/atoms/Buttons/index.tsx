@@ -3,7 +3,13 @@ import { ClipLoader } from 'react-spinners';
 
 interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   text?: string;
-  variant: 'filled' | 'transparent' | 'outlined' | 'light' | 'underlined' | 'danger';
+  variant:
+    | 'filled'
+    | 'transparent'
+    | 'outlined'
+    | 'light'
+    | 'underlined'
+    | 'danger';
   isLoading?: boolean;
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
@@ -39,13 +45,25 @@ const Button = ({
   }, [variant]);
 
   return (
-    <button className={`button group cursor-pointer ${style} ${className}`} {...rest}>
+    <button
+      className={`button group cursor-pointer ${style} ${className}`}
+      {...rest}
+    >
       {isLoading ? (
-        <ClipLoader color="#ffffff" size={20} aria-label="Loading Spinner" data-testid="loader" />
+        <ClipLoader
+          color="#ffffff"
+          size={20}
+          aria-label="Loading Spinner"
+          data-testid="loader"
+        />
       ) : (
         <>
           {leftIcon}
-          {children || <p className={`${leftIcon && 'ml-2'} ${rightIcon && 'mr-2'}`}>{text}</p>}
+          {children || (
+            <p className={`${leftIcon && 'ml-2'} ${rightIcon && 'mr-2'}`}>
+              {text}
+            </p>
+          )}
           {rightIcon}
         </>
       )}
