@@ -1,3 +1,3 @@
 export default function Home() {
-  return <div className="">Embermail.ai assessment.</div>;
+  return <div className="font-satoshi">Hexpress app</div>;
 }

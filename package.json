@@ -1,9 +1,9 @@
 {
-  "name": "embermail_assessment",
+  "name": "hexpress_admin",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbopack",
     "build": "next build",
     "check:types": "tsc --pretty --noEmit",
     "check:format": "prettier --check \"src/**/*.+(ts|tsx|json)\"",
@@ -17,8 +17,9 @@
   },
   "dependencies": {
     "next": "15.0.3",
-    "react": "19.0.0-rc-66855b96-20241106",
-    "react-dom": "19.0.0-rc-66855b96-20241106"
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-spinners": "^0.15.0"
   },
   "devDependencies": {
     "@types/node": "^20",

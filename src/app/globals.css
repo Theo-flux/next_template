@@ -2,20 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer components {
+  .button {
+    @apply flex cursor-pointer items-center justify-center text-sm;
+    @apply whitespace-nowrap transition-all duration-150 ease-in-out disabled:cursor-not-allowed disabled:opacity-50 hover:disabled:opacity-50;
   }
-}
+  .button-filled {
+    @apply bg-astronautBlue border-none text-white hover:opacity-80;
+    @apply h-[45px] w-full rounded-lg border font-medium;
+  }
+  .button-transparent {
+    @apply bg-bgGray hover:bg-bgGray/50 border-none text-black;
+    @apply h-[45px] w-full rounded-lg border font-medium;
+  }
+  .button-outlined {
+    @apply border-borderLine hover:border-astronautBlue border bg-white text-black hover:shadow;
+    @apply h-[45px] w-full rounded-lg border font-medium;
+  }
+  .button-light {
+    @apply bg-astronautBlue/10 text-astronautBlue hover:bg-astronautBlue/50 border-none hover:text-white;
+    @apply h-[45px] w-full rounded-lg border font-medium;
+  }
+  .button-underlined {
+    @apply border-astronautBlue flex w-fit items-center justify-start space-x-1 border-b px-2 py-1 ease-in-out;
+    @apply text-astronautBlue hover:bg-astronautBlue text-sm transition-all duration-300 hover:text-white;
+  }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  .button-danger {
+    @apply bg-error border-none text-white hover:opacity-80;
+    @apply h-[45px] w-full rounded-lg border font-medium;
+  }
 }
