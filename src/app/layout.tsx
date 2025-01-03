@@ -25,7 +25,7 @@ const satoshi = localFont({
 });
 
 export const metadata: Metadata = {
-  title: 'Hexpress',
+  title: 'thanQ',
   description: 'Haulage & Logistics company.',
 };
 
